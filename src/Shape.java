@@ -32,11 +32,16 @@ public abstract class MyShape
 
     }
 
+    protected abstract void drawThisShape(int circleRadius);
+
     //Methods from classes that inherit from this class must have...
     //  1. Draw shape
     protected abstract void drawThisShape();
     //  2. Grab size parameters
     protected abstract var grabSizeParameters();
+    //  3. Exception handling for grabbing size parameters
+    protected abstract void sizeParametersExceptionHandling();
+
 
 }
 
@@ -46,46 +51,107 @@ class Box extends MyShape
     @Override
     protected void drawThisShape(int[] heightLength)
     {
+        //TODO: Creating exception handling that will tell user if an X can be drawn with the sizeParameters given
+        // Then give the user the option to return to the home screen or give different parameters!
+
         //TODO: using int[] in method parameter to draw shape
     }
 
     @Override
-    protected int[] grabSizeParameters()
+    protected void drawThisShape()
     {
-        return new int[0];
+
+    }
+
+    @Override
+    protected var grabSizeParameters()
+    {
+
+
+        var heightAndLength = [ 1 , 1 ];
+
+        //TODO: Declaring int[] that will only store height and length. Array of two ints.
+
+
+        return heightAndLength;
+    }
+
+    @Override
+    protected void sizeParametersExceptionHandling()
+    {
+
     }
 }
 class BoxWithX extends MyShape
 {
 
     @Override
-    protected void drawThisShape()
+    protected void drawThisShape(int circleRadius)
     {
-        //TODO: using int[] in method parameter to draw shape
+
     }
 
     @Override
+    protected void drawThisShape()
+    {
+        //TODO: Creating exception handling that will tell user if an X can be drawn with the sizeParameters given
+        // Then give the user the option to return to the home screen or give different parameters!
+
+        //TODO: using int[] in method parameter to draw shape
+
+    }
+
+    //TODO: make return type compatible
+    @Override
     protected int[] grabSizeParameters()
     {
+        //
         return new int[0];
+    }
+
+    @Override
+    protected void sizeParametersExceptionHandling()
+    {
+
+    }
+
+    private void drawBoxInside()
+    {
+        //TODO: Implement this method.
     }
 }
 class Circle extends MyShape
 {
+
     @Override
     protected void drawThisShape(int circleRadius)
     {
+        //TODO: Creating exception handling that will tell user if an X can be drawn with the sizeParameters given
+        // Then give the user the option to return to the home screen or give different parameters!
+
         //TODO: using int[] in method parameter to draw shape
     }
 
     @Override
+    protected void drawThisShape()
+    {
+
+    }
+
+    //TODO: make return type compatible
+    @Override
     protected int grabSizeParameters()
     {
-        int radius = 1; //Initialized to circle of 1 *
+        var radius = 1; //Initialized to circle of 1 *
 
         //TODO: Asking user for radius
-        //Return Radius
 
         return radius;
+    }
+
+    @Override
+    protected void sizeParametersExceptionHandling()
+    {
+
     }
 }
