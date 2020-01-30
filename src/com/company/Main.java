@@ -21,7 +21,7 @@ public class Main
         afterShapeDisplayDecision();
     }
 
-    //------------------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------
     private static  void greetUser()
     {
         //Message to user---------------------------------------------------------------
@@ -38,9 +38,9 @@ public class Main
     }
     private static void pauseMyConsoleOperations()
     {
-        //Waiting 3 seconds after Shape is displayed and display message----------------
+        //Waiting 5 seconds after Shape is displayed and display message----------------
         //TODO: Multithread this with
-        try { TimeUnit.SECONDS.sleep(3); }
+        try { TimeUnit.SECONDS.sleep(5); }
         catch (InterruptedException e) { e.printStackTrace(); }
     }
 }

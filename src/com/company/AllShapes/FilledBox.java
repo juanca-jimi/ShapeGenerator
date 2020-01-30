@@ -1,10 +1,9 @@
 package com.company.AllShapes;
 
 import com.company.Shape;
-
 import java.util.Scanner;
 
-public class Box extends Shape
+public class FilledBox extends Shape
 {
     @Override
     public void drawThisShape(int[] heightAndWidth)

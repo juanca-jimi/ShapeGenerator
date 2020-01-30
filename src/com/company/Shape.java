@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Set;
 
-
 public class Shape implements ShapeActions
 {
 
@@ -49,7 +48,6 @@ public class Shape implements ShapeActions
         return myPossibleShapes;
     }
 
-
     public static void afterShapeDisplayDecision()
     {
         final String decisionQuestion = "If you would like to go exit press the X and then press Enter\n\n" +
@@ -64,7 +62,6 @@ public class Shape implements ShapeActions
         //TODO: Ask someone what should go in a main() method parameter
         //else Main.main();
     }
-
 
     @Override public void drawThisShape(int[] dimensions) { }
     @Override public int[] grabSizeParameters() { return new int[]{};}
