@@ -1,10 +1,7 @@
 package com.company;
 
-import java.io.IOException; //User input Exception handling
-import java.util.Scanner; // For User input
-import java.util.concurrent.TimeUnit; //Slowing down the console
-import com.company.AllShapes.*;
-import com.company.Shape;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import static com.company.Shape.afterShapeDisplayDecision;
 

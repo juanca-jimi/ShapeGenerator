@@ -2,6 +2,8 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Set;
+
 
 public class Shape implements ShapeActions
 {
@@ -36,9 +38,15 @@ public class Shape implements ShapeActions
         System.out.println(prompt);
     }
 
-    //TODO: Create method that calls all classes that inherit from Shape
+    //TODO: Create method that stores all classes that inherit from Shape
     private static ArrayList possibleShapes()
     {
+        ArrayList<Shape> myPossibleShapes = new ArrayList<Shape>();
+
+        Reflections reflections = new Reflections("com.mycompany");
+        Set<Class<? extends Shape>> classes = reflections.getSubTypesOf(MyInterface.class);
+
+        return myPossibleShapes;
     }
 
 

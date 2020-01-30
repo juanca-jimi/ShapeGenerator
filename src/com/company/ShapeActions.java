@@ -14,4 +14,5 @@ public interface ShapeActions
     //  TODO: 3. Exception handling for grabbing size parameters
     //void sizeParametersExceptionHandling();
 
+    //  TODO: 4. Redraw THIS shape again with different/same dimensions
 }
