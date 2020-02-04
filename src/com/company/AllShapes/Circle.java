@@ -1,6 +1,6 @@
-package com.company.AllShapes;
+/*package com.company.AllShapes;
 
-/*class Circle extends Shape
+class Circle extends Shape
 {
     //Find a way to pass int circleRadius to this methods parameters
     @Override

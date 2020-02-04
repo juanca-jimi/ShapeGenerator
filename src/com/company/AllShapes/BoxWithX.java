@@ -1,6 +1,6 @@
-package com.company.AllShapes;
+/*package com.company.AllShapes;
 
-/*
+
 public class BoxWithX extends Shape
 {
 

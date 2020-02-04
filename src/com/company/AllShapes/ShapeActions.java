@@ -1,4 +1,4 @@
-package com.company;
+package com.company.AllShapes;
 
 //ShapeActions Interface for MyShape------------------------------------------------------------------------------------
 public interface ShapeActions
@@ -15,4 +15,5 @@ public interface ShapeActions
     //void sizeParametersExceptionHandling();
 
     //  TODO: 4. Redraw THIS shape again with different/same dimensions
+    //void redrawThisShape();
 }
