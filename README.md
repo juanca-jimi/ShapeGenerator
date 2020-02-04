@@ -1,7 +1,7 @@
 # Shape Bender
 
 <h3> An object-oriented application that allows you to choose from shapes that inherit from the Shape class, 
-grabs your shape's size, and displays it for you on the console! </h3>
+enter your shape's size, and displays it for you on the console! </h3>
 
 <p>Below we have a simple UML Activity diagram of this application<p/>
 
