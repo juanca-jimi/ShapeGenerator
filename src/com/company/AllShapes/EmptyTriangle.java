@@ -1,9 +1,6 @@
-/*package com.company.AllShapes;
-
-import com.company.AllShapes.Shape;
+package com.company.AllShapes;
 
 public class EmptyTriangle extends Shape
 {
 
 }
-*/

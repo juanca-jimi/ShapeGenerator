@@ -9,8 +9,8 @@ public class Shape implements ShapeActions
 {
     public Shape getDisplayShape()
     {
-        System.out.println("Your possible shapes are listed below. \n " +
-                "Please select your shape by the number assigned to it.");
+        System.out.println("Your possible shapes are listed below. \n" +
+                "Please select your shape by the number assigned to it.\n\n");
 
         ArrayList<Shape> myShapes =  possibleShapes();
         possibleShapesMenu(myShapes);
@@ -22,7 +22,7 @@ public class Shape implements ShapeActions
         return myShapes.get(properIndex);
     }
 
-    private static void possibleShapesMenu(ArrayList shapesList)
+    private static void possibleShapesMenu(ArrayList<Shape> shapesList)
     {
         //Displaying all implemented Shapes to user
         for ( int shapes = 1; shapes <= shapesList.size() ; shapes++)
@@ -32,12 +32,12 @@ public class Shape implements ShapeActions
             //EX: 1. Triangle
             //    2. Circle
 
-            String shapeDisplay = shapes + ". " + shapesList.getClass();
+            String shapeDisplay = shapes + ". " + classDisplayName(shapesList.get(shapes-1).toString());
             System.out.println( shapeDisplay );
         }
 
         //Message to user
-        final String prompt = "Please chose Shape by entering the number associated with it and press enter";
+        final String prompt = "\nPlease choose your shape by entering the number associated with it and press enter\n";
         System.out.println(prompt);
     }
 
@@ -45,9 +45,15 @@ public class Shape implements ShapeActions
     private static ArrayList possibleShapes()
     {
         //Initializing returning Arraylist<>
-        ArrayList<Shape> myPossibleShapes = new ArrayList<Shape>();
+        ArrayList<Shape> myPossibleShapes = new ArrayList<Shape>(20);
 
-        //TODO: Gathering all classes that inherit from SHAPE and adding them to my Arraylist<>
+        //TODO: Gathering all classes that inherit from SHAPE at compile time and adding them to my Arraylist<>
+
+        myPossibleShapes.add(0, new EmptyBox());
+        myPossibleShapes.add(1, new FilledBox());
+        myPossibleShapes.add(2, new Circle());
+        myPossibleShapes.add(3, new FilledTriangle());
+        myPossibleShapes.add(4, new EmptyTriangle());
 
         return myPossibleShapes;
     }
@@ -68,6 +74,33 @@ public class Shape implements ShapeActions
         //Decision using user input
         if (mainScreenOrExit == 'X' || mainScreenOrExit == 'x') System.exit(0);
         else Main.main(args);
+    }
+
+    private static String classDisplayName(String packageClassName)
+    {
+        //Removing "Com.Company.AllShapes."
+        packageClassName = packageClassName.substring(22);
+
+        //removing "@........."
+        StringBuilder newString = new StringBuilder();
+        for (int index = 0; index < packageClassName.length(); index++)
+        {
+            if (packageClassName.charAt(index) == '@') {  break;}
+            char thisChar = packageClassName.charAt(index);
+            newString.append(thisChar);
+        }
+
+        packageClassName = newString.toString();
+
+        //From Pascal Case to regular notation
+        StringBuilder fixedPackageClassName = new StringBuilder();
+        for (int index = 0; index < packageClassName.length(); index++)
+        {
+            if (Character.isUpperCase(packageClassName.charAt(index)) && (index != 0)) fixedPackageClassName.append(' ');
+            fixedPackageClassName.append(packageClassName.charAt(index));
+        }
+
+        return fixedPackageClassName.toString();
     }
 
     //Interface methods

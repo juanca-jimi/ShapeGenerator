@@ -12,8 +12,9 @@ public class Main
     public static void main(String[] args)
     {
 
-        greetUser();
-        clearMyConsole();
+        //greetUser();
+        //TODO: fix this
+        //clearMyConsole();
         //Displaying possible shapes to user
         Shape DisplayShape = new Shape();
         DisplayShape.getDisplayShape().drawThisShape(DisplayShape.grabSizeParameters());

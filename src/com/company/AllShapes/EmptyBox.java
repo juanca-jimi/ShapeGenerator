@@ -38,7 +38,7 @@ public class EmptyBox extends Shape
     {
         //Declaring int[] that will only store height and length. Array of two ints.
         //[0] is height --- [1] is width
-        var heightAndWidth= new int[]{ 1 , 1 };
+        int[] heightAndWidth= new int[]{ 1 , 1 };
 
         //TODO: Implement exception handling
         System.out.println("Enter your box's height");

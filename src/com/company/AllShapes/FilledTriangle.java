@@ -1,6 +1,5 @@
-/*package com.company.AllShapes;
+package com.company.AllShapes;
 
-import com.company.AllShapes.Shape;
 import java.util.Scanner;
 
 public class FilledTriangle extends Shape
@@ -42,4 +41,4 @@ public class FilledTriangle extends Shape
         return baseAndHeight;
     }
 }
- */
+
