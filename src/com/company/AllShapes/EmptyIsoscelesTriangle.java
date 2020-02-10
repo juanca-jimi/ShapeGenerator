@@ -2,7 +2,7 @@ package com.company.AllShapes;
 
 import java.util.Scanner;
 
-public class FilledIsoscelesTriangle extends Shape
+public class EmptyIsoscelesTriangle extends Shape
 {
     @Override
     public void drawThisShape(int[] baseAndHeight)
@@ -15,8 +15,14 @@ public class FilledIsoscelesTriangle extends Shape
             {
                 for(int column = 1; column <= row; column++)
                 {
-                    //Printing out row of asterisk
-                    System.out.print("*");
+                    //outer triangle
+                    if (column == 1 || column == row) System.out.print("*");
+
+                    //bottom row
+                    else if (row == baseAndHeight[0]) System.out.print("*");
+
+                    //inner triangle
+                    else System.out.print(" ");
                 }
                 //Starting a new row
                 System.out.println();

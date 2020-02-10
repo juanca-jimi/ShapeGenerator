@@ -18,6 +18,7 @@ public class FilledBox extends Shape
                     //Printing out row of asterisk
                     System.out.print("*");
                 }
+
                 //Starting a new row
                 System.out.println();
             }
@@ -45,10 +46,4 @@ public class FilledBox extends Shape
 
         return heightAndWidth;
     }
-
-    /*@Override
-    public void sizeParametersExceptionHandling()
-    {
-
-    }*/
 }

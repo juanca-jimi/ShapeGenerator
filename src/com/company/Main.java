@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.AllShapes.HistoricalShapes;
 import com.company.AllShapes.Shape;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;

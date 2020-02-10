@@ -1,8 +1,7 @@
-package com.company;
-
-import com.company.AllShapes.Shape;
+package com.company.AllShapes;
 
 import java.util.ArrayList;
+import static com.company.AllShapes.Shape.classDisplayName;
 
 public class HistoricalShapes
 {
@@ -26,15 +25,15 @@ public class HistoricalShapes
         MySizes.add(arrayListIndex, ShapeSize);
     }
 
-    /*public static void displayHistorical(HistoricalShapes thisHistorical)
+    public static void displayHistorical(HistoricalShapes thisShape)
     {
-        System.out.println("You created " + thisHistorical.totalShapes + "shapes!\n");
-        for(Shape var : thisHistorical.MyShapes)
+        System.out.println("You created " + thisShape.totalShapes + "shapes!\n");
+        for(Shape var : thisShape.MyShapes)
         {
             System.out.println
-                    ( classDisplayName(thisHistorical.MyShapes(thisHistorical.totalShapes-1)) +
-                    thisHistorical.MySizes.toString());
+                    ( classDisplayName( thisShape.MyShapes.toString() ) + " of size: " +
+                    thisShape.MySizes.toString());
         }
-    }*/
+    }
 
 }

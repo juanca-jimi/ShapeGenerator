@@ -1,9 +1,9 @@
 package com.company.AllShapes;
 
-import com.company.HistoricalShapes;
-
+import com.company.Main;
 import java.util.ArrayList;
 import java.util.Scanner;
+import static com.company.Main.pauseMyConsoleOperations;
 
 public class Shape implements ShapeActions
 {
@@ -72,16 +72,16 @@ public class Shape implements ShapeActions
         char mainScreenOrExit = decisionAnswer.next().charAt(0);
 
         //Decision using user input
-        /*if (mainScreenOrExit == 'X' || mainScreenOrExit == 'x')
+        if (mainScreenOrExit == 'X' || mainScreenOrExit == 'x')
         {
             thisHistorical.displayHistorical(thisHistorical);
-            pauseMyConsoleOperations();
+            pauseMyConsoleOperations(10);
             System.exit(0);
-        };
-        else Main.main(args);*/
+        }
+        else Main.main(args);
     }
 
-    private static String classDisplayName(String packageClassName)
+    public static String classDisplayName(String packageClassName)
     {
         //Removing "Com.Company.AllShapes."
         packageClassName = packageClassName.substring(22);
