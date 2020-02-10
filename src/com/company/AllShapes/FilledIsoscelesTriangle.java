@@ -2,7 +2,7 @@ package com.company.AllShapes;
 
 import java.util.Scanner;
 
-public class FilledTriangle extends Shape
+public class FilledIsoscelesTriangle extends Shape
 {
     @Override
     public void drawThisShape(int[] baseAndHeight)
@@ -13,7 +13,7 @@ public class FilledTriangle extends Shape
         for(int row = 1; row <= baseAndHeight[0]; row++)
         {
             {
-                for(int column = 1; column <= baseAndHeight[1]; column++)
+                for(int column = 1; column <= row; column++)
                 {
                     //Printing out row of asterisk
                     System.out.print("*");
@@ -29,15 +29,12 @@ public class FilledTriangle extends Shape
     {
         //Declaring int[] that will only store height and length. Array of two ints.
         //[0] is height --- [1] is width
-        var baseAndHeight= new int[]{ 2 , 1 };
+        var baseAndHeight= new int[]{ 2 };
 
         //TODO: Implement exception handling
-        System.out.println("Enter your triangle's base");
-        Scanner Base = new Scanner(System.in);
-        baseAndHeight[0] = Base.nextInt();
-        System.out.println("Enter your triangle's height");
-        Scanner Height = new Scanner(System.in);
-        baseAndHeight[1] = Height.nextInt();
+        System.out.println("Enter a whole number greater than 2 for your triangle's base & height");
+        Scanner BaseAndHeight = new Scanner(System.in);
+        baseAndHeight[0] = BaseAndHeight.nextInt();
         return baseAndHeight;
     }
 }

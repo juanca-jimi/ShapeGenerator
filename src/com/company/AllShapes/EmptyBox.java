@@ -14,22 +14,21 @@ public class EmptyBox extends Shape
         {
                 for(int column = 1; column <= heightAndWidth[1]; column++)
                 {
-                    //Printing out row of asterisk
-                    //Print out asterisk in every column of the row
+                    //Bottom and top row
                     if (row == 1 || row == heightAndWidth[0])
                     {
                         System.out.print("*");
                     }
 
-                    //Print out perimeter of the box
-                    else if (column == 1 || column == heightAndWidth[1])
-                    {
-                        System.out.println("*");
-                    }
+                    //left and right perimeter
+                    else if (column == 1 || column == heightAndWidth[1]) System.out.print("*");
+
+                    //Inner box
+                    else System.out.print(" ");
                 }
 
-                //Starting a new column
-                System.out.print("\n");
+                //Starting a new row
+                System.out.println();
         }
     }
 
@@ -47,6 +46,10 @@ public class EmptyBox extends Shape
         System.out.println("Enter your box's width");
         Scanner Width = new Scanner(System.in);
         heightAndWidth[1] = Width.nextInt();
+
+        currentShapeSize[0] = heightAndWidth[0];
+        currentShapeSize[1] = heightAndWidth[1];
+
         return heightAndWidth;
     }
 }

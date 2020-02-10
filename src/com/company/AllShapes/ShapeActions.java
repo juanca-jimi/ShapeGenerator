@@ -16,4 +16,10 @@ public interface ShapeActions
 
     //  TODO: 4. Redraw THIS shape again with different/same dimensions
     //void redrawThisShape();
+
+    // 5. Adding to historical shapes
+    void addToHistoricalShape();
+
+    // 6. for historical shape
+    int[] currentShapeSize = new int[]{1,1,0};
 }

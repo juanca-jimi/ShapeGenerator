@@ -38,6 +38,11 @@ public class FilledBox extends Shape
         System.out.println("Enter your box's width");
         Scanner Width = new Scanner(System.in);
         heightAndWidth[1] = Width.nextInt();
+
+        //for HistoricalShapes
+        currentShapeSize[0] = heightAndWidth[0];
+        currentShapeSize[1] = heightAndWidth[1];
+
         return heightAndWidth;
     }
 
