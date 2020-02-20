@@ -10,4 +10,4 @@ enter your shape's size, and displays it for you on the console! </h3>
 
 <h3> UML Activity Diagram</h3>
 
-![This application's UML Activity Diagram](https://github.com/juanca-jimi/ShapeGenerator/blob/master/Shape%20Generator%20Activity%20Diagram.png "")
+![This application's UML Activity Diagram](https://github.com/juanca-jimi/ShapeGenerator/blob/master/Shape%20Generator%20Activity%20Diagram%20(1).pdf)
