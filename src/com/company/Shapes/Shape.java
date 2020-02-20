@@ -1,30 +1,51 @@
-package com.company.AllShapes;
+package com.company.Shapes;
 
 import com.company.Main;
+import com.company.Shapes.ImplementedShapes.EmptyBox;
+import com.company.Shapes.ImplementedShapes.EmptyIsoscelesTriangle;
+import com.company.Shapes.ImplementedShapes.FilledBox;
+import com.company.Shapes.ImplementedShapes.FilledIsoscelesTriangle;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import static com.company.Main.pauseMyConsoleOperations;
 
-public class Shape implements ShapeActions
+public abstract class Shape implements ShapeActions
 {
+    protected int[] currentShapeSize = {1,1,0};
+    protected int numberOfIndexes = 1;
+    protected String myDimensionName = "";
+    protected String myDrawing = "";
 
-    public Shape getDisplayShape()
+    public static Shape getDisplayShape()
     {
         System.out.println("Your possible shapes are listed below. \n" +
                 "Please select your shape by the number assigned to it.\n\n");
 
         ArrayList<Shape> myShapes =  possibleShapes();
-        possibleShapesMenu(myShapes);
+        int exitNumber = possibleShapesMenu(myShapes);
         Scanner usersShapeChoice = new Scanner(System.in);
+        usersShapeChoice.nextLine();
 
+
+        //Handling exceptions
+        if (!usersShapeChoice.hasNextInt() || usersShapeChoice.nextInt() < 1 || usersShapeChoice.nextInt() > 5)
+        {
+            System.out.println("Error.");
+            //tODO: Add recursion
+        }
+
+        if (usersShapeChoice.nextInt() == exitNumber) exitApp();
         int properIndex = usersShapeChoice.nextInt() - 1;
-        //TODO: Implement Exception Handling
+
 
         return myShapes.get(properIndex);
     }
 
-    private static void possibleShapesMenu(ArrayList<Shape> shapesList)
+    private static int possibleShapesMenu(ArrayList<Shape> shapesList)
     {
+
         //Displaying all implemented Shapes to user
         for ( int shapes = 1; shapes <= shapesList.size() ; shapes++)
         {
@@ -35,11 +56,16 @@ public class Shape implements ShapeActions
 
             String shapeDisplay = shapes + ". " + classDisplayName(shapesList.get(shapes-1).toString());
             System.out.println( shapeDisplay );
+            if (shapes == shapesList.size()) System.out.println( ++shapes + ". Exit");
         }
+
 
         //Message to user
         final String prompt = "\nPlease choose your shape by entering the number associated with it and press enter\n";
         System.out.println(prompt);
+
+        var exitnumber = (shapesList.size());
+        return --exitnumber;
     }
 
     //Method that stores all classes that inherit from Shape
@@ -58,33 +84,32 @@ public class Shape implements ShapeActions
         return myPossibleShapes;
     }
 
-    public static void afterShapeDisplayDecision(HistoricalShapes thisHistorical)
+    public static void afterShapeDisplayDecision(Shape Shape)
     {
-        final String decisionQuestion = "If you would like to go exit press the X and then press Enter\n\n" +
-                "Otherwise press any key to draw another shape and then press Enter";
+        //To call main method
         String[] args = new String[]{};
+        System.out.println("If you would like to go exit press the X and then press Enter\n" +
+                           "If you would like to redraw this shape enter \"1\"\n" +
+                           "Otherwise press any key to draw another shape and then press Enter");
 
-        //Message to user
-        System.out.println(decisionQuestion);
-
-        //Input from user
+        //Retrieving input from user
         Scanner decisionAnswer = new Scanner(System.in);
-        char mainScreenOrExit = decisionAnswer.next().charAt(0);
+        char mainScreenRedrawOrExit = decisionAnswer.next().charAt(0);
 
         //Decision using user input
-        if (mainScreenOrExit == 'X' || mainScreenOrExit == 'x')
+        if (mainScreenRedrawOrExit == 'X' || mainScreenRedrawOrExit == 'x') exitApp();
+        else if (mainScreenRedrawOrExit == '1')
         {
-            thisHistorical.displayHistorical(thisHistorical);
-            pauseMyConsoleOperations(10);
-            System.exit(0);
+            Shape.drawThisShape(Shape.grabSizeParameters());
+            afterShapeDisplayDecision(Shape);
         }
         else Main.main(args);
     }
 
     public static String classDisplayName(String packageClassName)
     {
-        //Removing "Com.Company.AllShapes."
-        packageClassName = packageClassName.substring(22);
+        //Removing "Com.Company.AllShapes..."
+        packageClassName = packageClassName.substring(37);
 
         //removing "@........."
         StringBuilder newString = new StringBuilder();
@@ -107,16 +132,11 @@ public class Shape implements ShapeActions
         return fixedPackageClassName.toString();
     }
 
-    @Override
-    public void addToHistoricalShape()
+    private static void exitApp()
     {
-
+        System.out.println("Saving your session to a file on the desktop...");
+        pauseMyConsoleOperations(2);
+        //AppLog.createFileOutput();
+        System.exit(0);
     }
-
-    //Interface methods
-    //TODO: Throw not implemented exception if these methods are called
-    @Override public void drawThisShape(int[] dimensions) { }
-    @Override public int[] grabSizeParameters() { return new int[]{};}
-
-
 }
