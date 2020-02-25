@@ -16,7 +16,7 @@ public class Main
     {
         Shape DisplayShape = getDisplayShape();
         DisplayShape.drawThisShape(DisplayShape.grabSizeParameters());
-        pauseMyConsoleOperations(3);
+        pauseMyConsoleOperations(2);
         afterShapeDisplayDecision(DisplayShape);
     }
 

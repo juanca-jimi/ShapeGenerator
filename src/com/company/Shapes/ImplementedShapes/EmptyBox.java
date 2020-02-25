@@ -44,6 +44,7 @@ public class EmptyBox extends Shape
                 //Starting a new row
                 System.out.println();
         }
+        myDrawing = MyDrawing.toString();
         addToShapeLog(heightAndWidth);
     }
 

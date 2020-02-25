@@ -6,9 +6,11 @@ import com.company.Shapes.ImplementedShapes.EmptyIsoscelesTriangle;
 import com.company.Shapes.ImplementedShapes.FilledBox;
 import com.company.Shapes.ImplementedShapes.FilledIsoscelesTriangle;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.company.Main.AppLog;
 import static com.company.Main.pauseMyConsoleOperations;
 
 public abstract class Shape implements ShapeActions
@@ -45,7 +47,7 @@ public abstract class Shape implements ShapeActions
 
     private static int possibleShapesMenu(ArrayList<Shape> shapesList)
     {
-
+        var exitNumber = shapesList.size() + 1;
         //Displaying all implemented Shapes to user
         for ( int shapes = 1; shapes <= shapesList.size() ; shapes++)
         {
@@ -56,7 +58,11 @@ public abstract class Shape implements ShapeActions
 
             String shapeDisplay = shapes + ". " + classDisplayName(shapesList.get(shapes-1).toString());
             System.out.println( shapeDisplay );
-            if (shapes == shapesList.size()) System.out.println( ++shapes + ". Exit");
+            if (shapes == shapesList.size())
+            {
+                System.out.println( ++shapes + ". Exit");
+                break;
+            }
         }
 
 
@@ -64,8 +70,8 @@ public abstract class Shape implements ShapeActions
         final String prompt = "\nPlease choose your shape by entering the number associated with it and press enter\n";
         System.out.println(prompt);
 
-        var exitnumber = (shapesList.size());
-        return --exitnumber;
+
+        return exitNumber;
     }
 
     //Method that stores all classes that inherit from Shape
@@ -132,11 +138,42 @@ public abstract class Shape implements ShapeActions
         return fixedPackageClassName.toString();
     }
 
+    //overloaded method
+    public static String classDisplayName(String packageClassName, int removePreviousChars)
+    {
+        //Removing "Com.Company.AllShapes..."
+        packageClassName = packageClassName.substring(removePreviousChars);
+
+        //removing "@........."
+        StringBuilder newString = new StringBuilder();
+        for (int index = 0; index < packageClassName.length(); index++)
+        {
+            if (packageClassName.charAt(index) == '@') {  break;}
+            char thisChar = packageClassName.charAt(index);
+            newString.append(thisChar);
+        }
+        packageClassName = newString.toString();
+
+        //From Pascal Case to regular notation
+        StringBuilder fixedPackageClassName = new StringBuilder();
+        for (int index = 0; index < packageClassName.length(); index++)
+        {
+            if (Character.isUpperCase(packageClassName.charAt(index)) && (index != 0)) fixedPackageClassName.append(' ');
+            fixedPackageClassName.append(packageClassName.charAt(index));
+        }
+
+        return fixedPackageClassName.toString();
+    }
+
     private static void exitApp()
     {
         System.out.println("Saving your session to a file on the desktop...");
-        pauseMyConsoleOperations(2);
-        //AppLog.createFileOutput();
+        pauseMyConsoleOperations(3);
+        try {
+            AppLog.createFileOutput();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.exit(0);
     }
 }
